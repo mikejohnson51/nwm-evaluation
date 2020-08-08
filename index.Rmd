@@ -63,6 +63,7 @@ nat = xx2 %>%
                         labels  = labels)) %>%
   mutate(category=factor(category, levels = unique(labels))) %>%
   na.omit()  
+  
 nat$flow_type =  recode(nat$flow_type, `allNSE` = "All Flows", `highNSE` = "High Flows")
 
 nat$CLASS =  recode(nat$CLASS, `natural` = "Natural", `non-natural` = "Controlled")
@@ -76,8 +77,9 @@ nseA = ggplot() +
    my.theme + 
   labs(color = "")
   
-nseA = annotate_figure(nseA, top = text_grob("NSE-A", color = "black", face = "bold", size = 28)) %>% 
-  ggsave(file = 'img/figure1.png', width = 9.5)
+nseA = annotate_figure(nseA, top = text_grob("NSE-A", color = "black", face = "bold", size = 28)) 
+
+ggsave(nseA, file = 'img/figure1.png', width = 9.5)
 ```
 ![](img/figure1.png)
 
