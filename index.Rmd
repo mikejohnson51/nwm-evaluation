@@ -63,7 +63,6 @@ nat = xx2 %>%
                         labels  = labels)) %>%
   mutate(category=factor(category, levels = unique(labels))) %>%
   na.omit()  
-  
 nat$flow_type =  recode(nat$flow_type, `allNSE` = "All Flows", `highNSE` = "High Flows")
 
 nat$CLASS =  recode(nat$CLASS, `natural` = "Natural", `non-natural` = "Controlled")
